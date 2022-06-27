@@ -98,6 +98,10 @@ public class GOL
                 }
             }
         }
+
+        //show game board before beginning
+        display();
+        System.out.println();
         
         // looping game of life for 5 generations
         for(int loop = 0; loop < 5; loop++) {
@@ -111,15 +115,11 @@ public class GOL
                     gridArr[i][j] = checkArr[i][j];
                 }
             }
-        }
-
-        // display game of life board after 5 generations
-        for(int i = 0; i < gridArr.length; i++) {
-            for(int j = 0; j < gridArr[i].length; j++) {
-                System.out.print(gridArr[i][j]);
-            }
+            // display game board after 1 generation
+            display();
             System.out.println();
         }
+
     }
 
     //checktile method to determine if tile lives or dies
@@ -139,6 +139,15 @@ public class GOL
             checkArr[x][y] = 1;
         } else {
             checkArr[x][y] = 0;
+        }
+    }
+
+    public static void display() {
+        for(int i = 0; i < gridArr.length; i++) {
+            for(int j = 0; j < gridArr[i].length; j++) {
+                System.out.print(gridArr[i][j]);
+            }
+            System.out.println();
         }
     }
 }
