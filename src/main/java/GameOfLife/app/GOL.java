@@ -91,10 +91,14 @@ public class GOL
         // setting up game of life grid using data points
         for(int i = 0; i < dataArr.length; i++) {
             for(int j = 0; j < dataArr[i].length; j++) {
-                if(dataArr[i][j] == '*') {
-                    gridArr[startX+i][startY+j] = 1;
-                } else {
-                    gridArr[startX+i][startY+j] = 0;
+                try {
+                    if(dataArr[i][j] == '*') {
+                        gridArr[startX+i][startY+j] = 1;
+                    } else {
+                        gridArr[startX+i][startY+j] = 0;
+                    }
+                } catch (IndexOutOfBoundsException e) {
+
                 }
             }
         }
